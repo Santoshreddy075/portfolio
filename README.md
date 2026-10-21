@@ -40,7 +40,7 @@ npm run preview  # serve the production build
 
 Every push to `main` runs `.github/workflows/deploy.yml`, which tests, builds and publishes the site. Pages must be set to deploy from GitHub Actions (Settings → Pages → Source).
 
-The site has real page URLs, so the build needs the path it's served from. The workflow sets `BASE_PATH=/<repo>/`. Locally it's `/`, and you can build for a subpath with `BASE_PATH=/portfolio/ npm run build`. The build also writes `dist/404.html`, so GitHub Pages serves the app for direct links to inner pages.
+The site has real page URLs, so the build needs the path it's served from. The workflow sets `BASE_PATH=/<repo>/`. Locally it's `/`, and you can build for a subpath with `BASE_PATH=/portfolio/ npm run build`. After building, `scripts/write-page-routes.mjs` copies `index.html` to each page's folder (`about/`, `projects/<slug>/`, …), so direct links return a normal 200. It also copies it to `404.html` for unknown URLs.
 
 ## How the motion works
 
