@@ -4,11 +4,11 @@ A one-page portfolio in an Apple-inspired style, built with React, Vite and GSAP
 
 ## Make it yours
 
-Everything the site says lives in **`src/content/profile.ts`**: your name, hero text, projects, case study, stats, the "Now" tile, experience and social links. Edit that file, push, and the site redeploys.
+Everything the site says lives in **`src/content/profile.ts`**: your name, hero text, section intros, projects, case study, stats, the "Now" tile, experience and social links. Edit that file, push, and the site redeploys.
 
-- **Latest on GitHub tile:** set `githubUsername` to your GitHub handle and the tile shows your most recently pushed public repos, fetched live. Leave it empty to show your `projects` instead.
-- **Project visuals:** each project's `art` picks a generated screen (`board`, `finance`, `dashboard`, `editor`, `hero`) and `palette` tints it. These live in `src/components/ProjectArt.tsx` if you want to draw your own.
-- **Email and résumé:** set `email` and `resumeUrl`. To host a résumé PDF with the site, put it in `public/` and set `resumeUrl: './resume.pdf'`.
+- **GitHub tile:** it links to `githubUsername`'s profile. With `liveGithubRepos: true` it shows your most recently pushed public repos, fetched live. With `false` it shows your `projects`.
+- **Project visuals:** each project's `art` picks a generated screen (`vision`, `metrics`, `prompt`, `chain`, `player`, `hero`) and `palette` tints it. These live in `src/components/ProjectArt.tsx` if you want to draw your own.
+- **Email and résumé:** set `email` and `resumeUrl`. Résumé buttons only appear when `resumeUrl` is set. To host a résumé PDF with the site, put it in `public/` and set `resumeUrl: './resume.pdf'`.
 
 ## Develop
 

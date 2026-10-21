@@ -2,7 +2,7 @@ import { renderHook, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { type RepoItem, useGithubRepos } from '../hooks/useGithubRepos'
 
-const fallback: RepoItem[] = [{ name: 'Tidepool', description: 'Fallback project', url: '#' }]
+const fallback: RepoItem[] = [{ name: 'Sample project', description: 'Fallback project', url: '#' }]
 
 afterEach(() => {
   vi.unstubAllGlobals()

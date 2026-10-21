@@ -31,7 +31,8 @@ describe('App', () => {
     const caseStudy = screen.getByRole('region', { name: profile.featured.title })
     for (const step of profile.featured.steps) {
       expect(within(caseStudy).getByRole('heading', { name: step.title })).toBeInTheDocument()
-      expect(within(caseStudy).getByText(step.metric.value)).toBeInTheDocument()
+      // Skip the decorative artwork's own SVG text.
+      expect(within(caseStudy).getByText(step.metric.value, { ignore: 'script, style, svg *' })).toBeInTheDocument()
     }
   })
 
@@ -60,6 +61,28 @@ describe('App', () => {
 
   it('links the contact button to the email address', () => {
     expect(screen.getByRole('link', { name: /email me/i })).toHaveAttribute('href', `mailto:${profile.email}`)
+  })
+
+  it('takes section intros and the call to action from the profile', () => {
+    expect(screen.getByText(profile.copy.workLead)).toBeInTheDocument()
+    expect(screen.getByText(profile.copy.highlightsLead)).toBeInTheDocument()
+    expect(screen.getByText(profile.copy.experienceLead)).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: profile.copy.contactTitle })).toBeInTheDocument()
+    expect(screen.getByText(profile.copy.contactLead)).toBeInTheDocument()
+  })
+
+  it('shows résumé links only when a résumé is set', () => {
+    const resumeLinks = screen.queryAllByRole('link', { name: /résumé/i })
+    if (profile.resumeUrl) expect(resumeLinks.length).toBeGreaterThan(0)
+    else expect(resumeLinks).toHaveLength(0)
+  })
+
+  it('links the GitHub tile to the GitHub profile', () => {
+    const highlights = screen.getByRole('region', { name: /highlights/i })
+    expect(within(highlights).getByRole('link', { name: new RegExp(profile.githubUsername, 'i') })).toHaveAttribute(
+      'href',
+      `https://github.com/${profile.githubUsername}`,
+    )
   })
 })
 

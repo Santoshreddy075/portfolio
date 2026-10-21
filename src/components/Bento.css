@@ -192,6 +192,13 @@
   color: #1a7f37;
 }
 
+.tile__profile-link {
+  min-height: auto;
+  width: fit-content;
+  margin-top: -6px;
+  font-size: var(--text-small);
+}
+
 .repo-list {
   display: grid;
   grid-template-columns: 1fr;

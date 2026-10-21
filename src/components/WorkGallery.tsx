@@ -69,7 +69,7 @@ export function WorkGallery() {
         <h2 id="work-title" className="display">
           Selected work.
         </h2>
-        <p className="lead">Four products, from napkin sketch to millions of hands.</p>
+        <p className="lead">{profile.copy.workLead}</p>
       </div>
 
       <div className="work__viewport">

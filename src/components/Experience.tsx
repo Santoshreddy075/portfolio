@@ -46,10 +46,12 @@ export function Experience() {
           <h2 id="experience-title" className="display">
             Experience.
           </h2>
-          <p className="lead">Small teams, big surfaces, and a habit of leaving codebases better than I found them.</p>
-          <a className="link-arrow" href={profile.resumeUrl}>
-            Download résumé
-          </a>
+          <p className="lead">{profile.copy.experienceLead}</p>
+          {profile.resumeUrl && (
+            <a className="link-arrow" href={profile.resumeUrl}>
+              Download résumé
+            </a>
+          )}
         </header>
 
         <div className="timeline">

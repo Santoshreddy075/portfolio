@@ -50,18 +50,18 @@ export function Contact() {
       <div className="container contact__inner">
         <p className="eyebrow">What's next?</p>
         <h2 id="contact-title" className="contact__title" ref={title}>
-          Let's build something remarkable.
+          {profile.copy.contactTitle}
         </h2>
-        <p className="lead contact__lead">
-          I'm open to staff-level roles and a few select collaborations. My inbox is always open.
-        </p>
+        <p className="lead contact__lead">{profile.copy.contactLead}</p>
         <div className="contact__actions">
           <a className="btn btn--primary" href={`mailto:${profile.email}`}>
             Email me
           </a>
-          <a className="btn btn--ghost" href={profile.resumeUrl}>
-            Download résumé
-          </a>
+          {profile.resumeUrl && (
+            <a className="btn btn--ghost" href={profile.resumeUrl}>
+              Download résumé
+            </a>
+          )}
         </div>
         <ul className="contact__socials">
           {profile.socials.map((social) => (

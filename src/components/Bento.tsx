@@ -5,16 +5,18 @@ import { formatStat } from '../lib/format'
 import { MEDIA, gsap, useGSAP } from '../lib/gsap'
 import './Bento.css'
 
+const GITHUB_URL = profile.githubUsername ? `https://github.com/${profile.githubUsername}` : ''
+
 const FALLBACK_REPOS: RepoItem[] = profile.projects.map((p) => ({
   name: p.title,
   description: p.tagline,
-  url: p.links[0]?.href ?? '#',
+  url: p.links.find((l) => l.href.startsWith('http'))?.href ?? (GITHUB_URL || '#'),
   language: p.stack[0],
 }))
 
 export function Bento() {
   const root = useRef<HTMLElement>(null)
-  const { repos, live } = useGithubRepos(profile.githubUsername, FALLBACK_REPOS)
+  const { repos, live } = useGithubRepos(profile.liveGithubRepos ? profile.githubUsername : '', FALLBACK_REPOS)
 
   useGSAP(
     () => {
@@ -65,7 +67,7 @@ export function Bento() {
           <h2 id="highlights-title" className="display">
             The highlights.
           </h2>
-          <p className="lead">A quick look at who I am, what I've done and what I'm up to right now.</p>
+          <p className="lead">{profile.copy.highlightsLead}</p>
         </header>
 
         <div className="bento">
@@ -117,9 +119,14 @@ export function Bento() {
 
           <article className="tile tile--github">
             <div className="tile__row">
-              <h3 className="tile__title tile__title--sm">Latest on GitHub</h3>
+              <h3 className="tile__title tile__title--sm">{live ? 'Latest on GitHub' : 'On GitHub'}</h3>
               <span className={`badge${live ? ' badge--live' : ''}`}>{live ? 'Live' : 'Featured'}</span>
             </div>
+            {GITHUB_URL && (
+              <a className="link-arrow tile__profile-link" href={GITHUB_URL} target="_blank" rel="noreferrer">
+                github.com/{profile.githubUsername}
+              </a>
+            )}
             <ul className="repo-list">
               {repos.map((repo) => (
                 <li key={repo.name}>

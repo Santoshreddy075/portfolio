@@ -1,5 +1,5 @@
 /** Which generated "screen" ProjectArt draws. */
-export type ArtVariant = 'hero' | 'board' | 'finance' | 'dashboard' | 'editor'
+export type ArtVariant = 'hero' | 'vision' | 'metrics' | 'prompt' | 'chain' | 'player'
 
 export type Link = { label: string; href: string }
 
@@ -49,12 +49,23 @@ export type Profile = {
   role: string
   location: string
   email: string
+  /** Link to a résumé (e.g. './resume.pdf' in public/). Leave empty to hide the résumé buttons. */
   resumeUrl: string
-  /** Public GitHub username for the live "Latest on GitHub" tile. Leave empty to show `projects` instead. */
+  /** Your GitHub username; the GitHub tile links to your profile. */
   githubUsername: string
+  /** true: the GitHub tile fetches your latest public repos live. false: it shows `projects`. */
+  liveGithubRepos: boolean
   hero: { eyebrow: string; title: string; accent: string; subtitle: string }
   statement: string
   about: { title: string; body: string }
+  /** Section intros and the closing call to action. */
+  copy: {
+    workLead: string
+    highlightsLead: string
+    experienceLead: string
+    contactTitle: string
+    contactLead: string
+  }
   projects: Project[]
   featured: { projectSlug: string; eyebrow: string; title: string; steps: CaseStep[] }
   stats: Stat[]
