@@ -1,0 +1,252 @@
+@import '@fontsource-variable/inter';
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--on-dark);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.47;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--link-on-dark);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+[id] {
+  scroll-margin-top: var(--nav-h);
+}
+
+/* ---------- Section shells ---------- */
+
+.section {
+  position: relative;
+  padding-block: var(--section-y);
+}
+
+.section--dark {
+  background: var(--black);
+  color: var(--on-dark);
+}
+
+.section--light {
+  background: var(--paper);
+  color: var(--on-light);
+}
+
+.section--mist {
+  background: var(--mist);
+  color: var(--on-light);
+}
+
+.container {
+  width: min(100% - 2 * var(--gutter), var(--content));
+  margin-inline: auto;
+}
+
+/* ---------- Type helpers ---------- */
+
+.eyebrow {
+  font-size: var(--text-lead);
+  font-weight: 600;
+  letter-spacing: var(--tracking-snug);
+  color: var(--on-dark-muted);
+}
+
+.section--light .eyebrow,
+.section--mist .eyebrow {
+  color: var(--on-light-muted);
+}
+
+.display {
+  font-size: var(--text-display);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: var(--tracking-tight);
+}
+
+.lead {
+  font-size: var(--text-lead);
+  line-height: 1.38;
+  letter-spacing: var(--tracking-snug);
+  font-weight: 500;
+  color: var(--on-dark-muted);
+}
+
+.section--light .lead,
+.section--mist .lead {
+  color: var(--on-light-muted);
+}
+
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Buttons & links ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  min-height: 44px;
+  padding: 0.7em 1.4em;
+  border-radius: 980px;
+  font-size: var(--text-body);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition:
+    background-color 0.3s var(--ease-out),
+    color 0.3s var(--ease-out),
+    transform 0.3s var(--ease-out);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn--primary {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.btn--primary:hover {
+  background: var(--blue-hover);
+}
+
+.btn--ghost {
+  color: var(--link-on-dark);
+  box-shadow: inset 0 0 0 1px currentColor;
+}
+
+.btn--ghost:hover {
+  background: var(--link-on-dark);
+  color: var(--white);
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15em;
+  min-height: 44px;
+  color: var(--link-on-dark);
+  font-size: var(--text-body);
+}
+
+.section--light .link-arrow,
+.section--mist .link-arrow {
+  color: var(--link-on-light);
+}
+
+.link-arrow::after {
+  content: '›';
+  font-size: 1.25em;
+  line-height: 1;
+  transform: translateY(-0.04em);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.link-arrow:hover {
+  text-decoration: underline;
+}
+
+.link-arrow:hover::after {
+  transform: translate(3px, -0.04em);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35em 0.8em;
+  border-radius: 980px;
+  font-size: var(--text-small);
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--on-light);
+}
+
+.section--dark .chip,
+.on-dark .chip {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--on-dark);
+}
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 200;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--ink);
+  font-size: var(--text-small);
+  font-weight: 600;
+  translate: 0 -200%;
+}
+
+.skip-link:focus-visible {
+  translate: 0 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

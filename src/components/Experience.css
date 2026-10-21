@@ -1,0 +1,123 @@
+.experience__grid {
+  display: grid;
+  gap: clamp(40px, 6vw, 80px);
+}
+
+.experience__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.experience__head .lead {
+  max-width: 30ch;
+}
+
+.timeline {
+  position: relative;
+  --rail-x: 7px;
+}
+
+.timeline__rail {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: var(--rail-x);
+  width: 2px;
+  border-radius: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.timeline__progress {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, #4facfe, #a78bfa, #f472b6);
+  transform-origin: 50% 0;
+}
+
+.timeline__list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(40px, 6vw, 64px);
+}
+
+.timeline__item {
+  position: relative;
+  padding-left: 44px;
+}
+
+.timeline__dot {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 0 5px var(--mist);
+}
+
+.timeline__dates {
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--on-light-muted);
+  margin-bottom: 6px;
+}
+
+.timeline__role {
+  font-size: var(--text-title);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: var(--tracking-snug);
+}
+
+.timeline__company {
+  font-size: var(--text-lead);
+  font-weight: 500;
+  color: var(--on-light-muted);
+  margin-top: 4px;
+}
+
+.timeline__summary {
+  margin-top: 14px;
+  max-width: 48ch;
+}
+
+.timeline__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.timeline__highlights li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--on-light-muted);
+}
+
+.timeline__highlights li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+@media (min-width: 900px) {
+  .experience__grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+    align-items: start;
+  }
+
+  .experience__head {
+    position: sticky;
+    top: calc(var(--nav-h) + 48px);
+  }
+}

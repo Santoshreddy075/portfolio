@@ -1,0 +1,9 @@
+.project-art {
+  width: 100%;
+  height: 100%;
+}
+
+.project-art text {
+  font-family: var(--font-sans);
+  letter-spacing: -0.02em;
+}

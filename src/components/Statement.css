@@ -1,0 +1,36 @@
+.statement__inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vw, 36px);
+}
+
+.statement__eyebrow {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  width: fit-content;
+}
+
+.statement__text {
+  max-width: 24ch;
+  font-size: var(--text-statement);
+  font-weight: 600;
+  line-height: 1.16;
+  letter-spacing: -0.03em;
+  color: var(--on-dark);
+}
+
+@media (min-width: 768px) {
+  .statement__text {
+    max-width: 30ch;
+  }
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .statement {
+    min-height: 100svh;
+    display: grid;
+    align-items: center;
+  }
+}

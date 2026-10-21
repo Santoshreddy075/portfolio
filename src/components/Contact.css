@@ -1,0 +1,65 @@
+.contact {
+  overflow: clip;
+  padding-block: clamp(120px, 18vw, 240px);
+}
+
+/* faint glow on the floor of the section */
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: auto -10% -40%;
+  height: 80%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(167, 139, 250, 0.22), transparent 70%);
+  pointer-events: none;
+}
+
+.contact__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 2.6vw, 32px);
+  text-align: center;
+}
+
+.contact__title {
+  --x: 50%;
+  --y: 50%;
+  max-width: 12ch;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+  padding-bottom: 0.06em;
+  background: radial-gradient(
+    circle clamp(220px, 30vw, 460px) at var(--x) var(--y),
+    #ffffff 0%,
+    #d9ccff 22%,
+    #a78bfa 40%,
+    #4a4a50 78%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.contact__lead {
+  max-width: 38ch;
+  text-wrap: balance;
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.contact__socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 28px;
+}

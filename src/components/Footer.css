@@ -1,0 +1,22 @@
+.footer {
+  background: var(--black);
+  color: var(--on-dark-muted);
+  font-size: var(--text-micro);
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 20px 28px;
+  border-top: 1px solid var(--hairline-dark);
+}
+
+.footer a {
+  color: var(--on-dark);
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
