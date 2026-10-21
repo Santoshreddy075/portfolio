@@ -42,7 +42,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="section section--dark contact"
+      className="section contact"
       ref={root}
       onPointerMove={onPointerMove}
       aria-labelledby="contact-title"

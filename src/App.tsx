@@ -1,14 +1,42 @@
 import { useEffect } from 'react'
-import { Bento } from './components/Bento'
-import { Contact } from './components/Contact'
-import { Experience } from './components/Experience'
-import { FeaturedProject } from './components/FeaturedProject'
+import { BrowserRouter, Route, Routes } from 'react-router'
 import { Footer } from './components/Footer'
-import { Hero } from './components/Hero'
 import { Nav } from './components/Nav'
-import { Statement } from './components/Statement'
-import { WorkGallery } from './components/WorkGallery'
+import { PageTransition } from './components/PageTransition'
+import { ScrollManager } from './components/ScrollManager'
 import { ScrollTrigger } from './lib/gsap'
+import { AboutPage } from './pages/AboutPage'
+import { CredentialsPage } from './pages/CredentialsPage'
+import { HomePage } from './pages/HomePage'
+import { NotFoundPage } from './pages/NotFoundPage'
+import { ProjectPage } from './pages/ProjectPage'
+import { WritingPage } from './pages/WritingPage'
+
+/** The site's pages and shared chrome, independent of which router hosts them. */
+export function AppRoutes() {
+  return (
+    <>
+      <ScrollManager />
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <Nav />
+      <main id="main">
+        <PageTransition>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/projects/:slug" element={<ProjectPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/credentials" element={<CredentialsPage />} />
+            <Route path="/writing" element={<WritingPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </PageTransition>
+      </main>
+      <Footer />
+    </>
+  )
+}
 
 export default function App() {
   // Pin and trigger positions depend on text metrics; re-measure once web fonts land.
@@ -17,21 +45,8 @@ export default function App() {
   }, [])
 
   return (
-    <>
-      <a className="skip-link" href="#main">
-        Skip to content
-      </a>
-      <Nav />
-      <main id="main">
-        <Hero />
-        <Statement />
-        <WorkGallery />
-        <FeaturedProject />
-        <Bento />
-        <Experience />
-        <Contact />
-      </main>
-      <Footer />
-    </>
+    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '') || '/'}>
+      <AppRoutes />
+    </BrowserRouter>
   )
 }

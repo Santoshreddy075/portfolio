@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router'
 import { profile } from '../content/profile'
 import { MEDIA, gsap, useGSAP } from '../lib/gsap'
 import { ProjectArt } from './ProjectArt'
@@ -64,8 +65,8 @@ export function WorkGallery() {
   )
 
   return (
-    <section id="work" className="section section--mist work" ref={root} aria-labelledby="work-title">
-      <div className="container work__head">
+    <section id="work" className="section work" ref={root} aria-labelledby="work-title">
+      <div className="container section-head work__head">
         <h2 id="work-title" className="display">
           Selected work.
         </h2>
@@ -75,18 +76,26 @@ export function WorkGallery() {
       <div className="work__viewport">
         <ul className="work__track">
           {profile.projects.map((project) => (
-            <li key={project.slug} className={`work-card work-card--${project.theme}`}>
+            <li key={project.slug} className="work-card">
               <div className="work-card__copy">
                 <p className="work-card__meta">
-                  {project.category} · {project.year}
+                  {project.category} · {project.period}
                 </p>
-                <h3 className="work-card__title">{project.title}</h3>
+                <h3 className="work-card__title">
+                  {/* Stretched link: the whole card opens the project page. */}
+                  <Link to={`/projects/${project.slug}`} className="work-card__link">
+                    {project.title}
+                  </Link>
+                </h3>
                 <p className="work-card__tagline">{project.tagline}</p>
               </div>
               <div className="work-card__art">
                 <div className="work-card__art-inner">
                   <ProjectArt variant={project.art} palette={project.palette} />
                 </div>
+                <span className="work-card__result pill">
+                  <span className="pill__value">{project.result.value}</span>
+                </span>
               </div>
               <div className="work-card__foot">
                 <ul className="work-card__stack" aria-label="Built with">
@@ -96,13 +105,9 @@ export function WorkGallery() {
                     </li>
                   ))}
                 </ul>
-                <div className="work-card__links">
-                  {project.links.map((link) => (
-                    <a key={link.label} className="link-arrow" href={link.href}>
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
+                <span className="work-card__cta" aria-hidden="true">
+                  Explore project
+                </span>
               </div>
             </li>
           ))}

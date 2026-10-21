@@ -26,7 +26,7 @@
   left: var(--rail-x);
   width: 2px;
   border-radius: 1px;
-  background: rgba(0, 0, 0, 0.1);
+  background: var(--hairline);
 }
 
 .timeline__progress {
@@ -56,13 +56,13 @@
   height: 16px;
   border-radius: 50%;
   background: var(--blue);
-  box-shadow: 0 0 0 5px var(--mist);
+  box-shadow: 0 0 0 5px var(--section-bg);
 }
 
 .timeline__dates {
   font-size: var(--text-small);
   font-weight: 600;
-  color: var(--on-light-muted);
+  color: var(--text-muted);
   margin-bottom: 6px;
 }
 
@@ -76,7 +76,7 @@
 .timeline__company {
   font-size: var(--text-lead);
   font-weight: 500;
-  color: var(--on-light-muted);
+  color: var(--text-muted);
   margin-top: 4px;
 }
 
@@ -95,7 +95,7 @@
 .timeline__highlights li {
   position: relative;
   padding-left: 18px;
-  color: var(--on-light-muted);
+  color: var(--text-muted);
 }
 
 .timeline__highlights li::before {

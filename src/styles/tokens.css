@@ -1,7 +1,10 @@
 :root {
+  color-scheme: light dark;
+
   /* Type: system stack first, so Apple devices render SF Pro natively. */
   --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter Variable', 'Helvetica Neue', Arial,
     sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
 
   --text-hero: clamp(3rem, 8.4vw, 7.5rem);
   --text-display: clamp(2.5rem, 6vw, 5rem);
@@ -15,29 +18,12 @@
   --tracking-tight: -0.04em;
   --tracking-snug: -0.022em;
 
-  /* Surfaces */
-  --black: #000;
-  --ink: #1d1d1f;
-  --paper: #fbfbfd;
-  --mist: #f5f5f7;
-  --white: #fff;
-  --graphite: #161617;
-  --slate: #1d1d1f;
-
-  /* Text on light / dark */
-  --on-light: #1d1d1f;
-  --on-light-muted: #6e6e73;
-  --on-dark: #f5f5f7;
-  --on-dark-muted: #86868b;
-  --hairline-light: rgba(0, 0, 0, 0.1);
-  --hairline-dark: rgba(255, 255, 255, 0.12);
-
-  /* Accent */
+  /* Brand — the same in both themes */
   --blue: #0071e3;
   --blue-hover: #0077ed;
-  --link-on-dark: #2997ff;
-  --link-on-light: #0066cc;
   --gradient: linear-gradient(90deg, #4facfe 0%, #a78bfa 50%, #f472b6 100%);
+  --white: #fff;
+  --ink: #1d1d1f;
 
   /* Layout */
   --content: 1180px;
@@ -49,4 +35,53 @@
 
   /* Motion */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ---- Light theme (default) ---- */
+  --bg: #fbfbfd;
+  --bg-alt: #f5f5f7;
+  --surface: #ffffff;
+  --surface-2: #f5f5f7;
+  --surface-3: #e8e8ed;
+  --text: #1d1d1f;
+  --text-muted: #6e6e73;
+  --text-faint: #86868b;
+  --hairline: rgba(0, 0, 0, 0.1);
+  --hairline-strong: rgba(0, 0, 0, 0.18);
+  --link: #0066cc;
+  --chip-bg: rgba(0, 0, 0, 0.05);
+  --nav-bg: rgba(251, 251, 253, 0.74);
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  --card-shadow-hover: 0 18px 50px rgba(0, 0, 0, 0.12);
+  --bloom: 0.55;
+  --spot-core: #1d1d1f;
+  --spot-mid: #6d4fd6;
+  --spot-edge: #a1a1a6;
+  --success: #1a7f37;
+  --success-bg: rgba(48, 209, 88, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --bg-alt: #0b0b0d;
+    --surface: #161617;
+    --surface-2: #1d1d1f;
+    --surface-3: #2a2a2d;
+    --text: #f5f5f7;
+    --text-muted: #86868b;
+    --text-faint: #6e6e73;
+    --hairline: rgba(255, 255, 255, 0.12);
+    --hairline-strong: rgba(255, 255, 255, 0.22);
+    --link: #2997ff;
+    --chip-bg: rgba(255, 255, 255, 0.1);
+    --nav-bg: rgba(22, 22, 23, 0.72);
+    --card-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+    --card-shadow-hover: 0 0 0 1px rgba(255, 255, 255, 0.14), 0 24px 60px rgba(0, 0, 0, 0.6);
+    --bloom: 1;
+    --spot-core: #ffffff;
+    --spot-mid: #a78bfa;
+    --spot-edge: #4a4a50;
+    --success: #30d158;
+    --success-bg: rgba(48, 209, 88, 0.16);
+  }
 }

@@ -1,0 +1,14 @@
+.writing__grid {
+  display: grid;
+  gap: clamp(12px, 1.6vw, 20px);
+}
+
+.writing__all {
+  margin-top: 20px;
+}
+
+@media (min-width: 900px) {
+  .writing__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

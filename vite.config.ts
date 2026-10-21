@@ -4,9 +4,10 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // Relative base: the single-page build works at any path,
-  // e.g. https://<user>.github.io/<repo>/ or a custom domain root.
-  base: './',
+  // The site has real page URLs (/about, /projects/…), so assets need an absolute
+  // base. GitHub Pages serves a project site under /<repo>/; the deploy workflow
+  // sets BASE_PATH to that. Locally it's served from the root.
+  base: process.env.BASE_PATH ?? '/',
   plugins: [react()],
   test: {
     environment: 'jsdom',

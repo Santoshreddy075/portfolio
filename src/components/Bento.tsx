@@ -1,7 +1,8 @@
 import { useRef } from 'react'
+import { Link } from 'react-router'
 import { profile } from '../content/profile'
 import { type RepoItem, useGithubRepos } from '../hooks/useGithubRepos'
-import { formatStat } from '../lib/format'
+import { asset, formatStat } from '../lib/format'
 import { MEDIA, gsap, useGSAP } from '../lib/gsap'
 import './Bento.css'
 
@@ -61,9 +62,9 @@ export function Bento() {
   )
 
   return (
-    <section id="about" className="section section--light bento-section" ref={root} aria-labelledby="highlights-title">
+    <section id="highlights" className="section bento-section" ref={root} aria-labelledby="highlights-title">
       <div className="container">
-        <header className="bento__head">
+        <header className="section-head bento__head">
           <h2 id="highlights-title" className="display">
             The highlights.
           </h2>
@@ -71,12 +72,20 @@ export function Bento() {
         </header>
 
         <div className="bento">
-          <article className="tile tile--dark tile--intro">
-            <p className="tile__eyebrow">About</p>
+          <article className="tile tile--feature tile--intro">
+            <div className="tile__row">
+              <p className="tile__eyebrow">About</p>
+              <img className="tile__avatar" src={asset(profile.about.photo)} alt={profile.about.photoAlt} width="56" height="56" />
+            </div>
             <h3 className="tile__title">{profile.about.title}</h3>
             <p className="tile__body">{profile.about.body}</p>
             <p className="tile__foot">
-              {profile.role} · {profile.location}
+              <span>
+                {profile.role} · {profile.location}
+              </span>
+              <Link className="link-arrow" to="/about">
+                More about me
+              </Link>
             </p>
           </article>
 
@@ -89,7 +98,7 @@ export function Bento() {
             </article>
           ))}
 
-          <article className="tile tile--dark tile--now">
+          <article className="tile tile--feature tile--now">
             <div className="tile__row">
               <h3 className="tile__title tile__title--sm">
                 <span className="live-dot" aria-hidden="true" /> Now

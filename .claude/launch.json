@@ -11,6 +11,7 @@
       "name": "portfolio-preview",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "preview", "--", "--port", "4173", "--strictPort", "--base", "/portfolio/"],
+      "env": { "BASE_PATH": "/portfolio/" },
       "port": 4173
     }
   ]

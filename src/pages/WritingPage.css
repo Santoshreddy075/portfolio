@@ -1,0 +1,7 @@
+.writing-page__lead {
+  margin-bottom: clamp(32px, 5vw, 64px);
+}
+
+.post-list {
+  border-bottom: 1px solid var(--hairline);
+}

@@ -34,10 +34,9 @@
   padding-bottom: 0.06em;
   background: radial-gradient(
     circle clamp(220px, 30vw, 460px) at var(--x) var(--y),
-    #ffffff 0%,
-    #d9ccff 22%,
-    #a78bfa 40%,
-    #4a4a50 78%
+    var(--spot-core) 0%,
+    var(--spot-mid) 38%,
+    var(--spot-edge) 80%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -67,13 +66,13 @@
 
 .contact__emails a {
   font-size: var(--text-body);
-  color: var(--on-dark);
+  color: var(--text);
   overflow-wrap: anywhere;
   transition: color 0.2s;
 }
 
 .contact__emails a:hover {
-  color: var(--link-on-dark);
+  color: var(--link);
   text-decoration: underline;
 }
 

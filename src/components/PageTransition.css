@@ -1,0 +1,10 @@
+.page-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  visibility: hidden;
+  background:
+    radial-gradient(60% 60% at 50% 100%, rgba(167, 139, 250, 0.35), transparent 70%),
+    var(--bg);
+  pointer-events: none;
+}

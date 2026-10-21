@@ -1,6 +1,7 @@
 .hero {
   position: relative;
-  background: var(--black);
+  background: var(--bg);
+  color: var(--text);
   overflow: clip;
 }
 
@@ -23,6 +24,7 @@
     radial-gradient(50% 60% at 30% 100%, rgba(79, 172, 254, 0.28), transparent 70%),
     radial-gradient(45% 55% at 70% 100%, rgba(244, 114, 182, 0.22), transparent 70%),
     radial-gradient(40% 50% at 50% 90%, rgba(167, 139, 250, 0.3), transparent 70%);
+  opacity: var(--bloom);
   pointer-events: none;
 }
 
@@ -51,7 +53,7 @@
   font-size: var(--text-lead);
   line-height: 1.4;
   letter-spacing: var(--tracking-snug);
-  color: var(--on-dark-muted);
+  color: var(--text-muted);
   text-wrap: balance;
 }
 

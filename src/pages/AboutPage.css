@@ -1,0 +1,197 @@
+/* ---------- hero ---------- */
+
+.about-hero {
+  position: relative;
+  padding: calc(var(--nav-h) + clamp(56px, 10vh, 128px)) 0 clamp(64px, 9vw, 128px);
+  background: var(--bg);
+  overflow: clip;
+}
+
+.about-hero__grid {
+  display: grid;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+
+.about-hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(14px, 2vw, 24px);
+}
+
+.about-hero__title {
+  font-size: var(--text-hero);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  padding-bottom: 0.04em;
+}
+
+.about-hero__lead {
+  max-width: 38ch;
+}
+
+.about-hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.about-hero__chips .chip {
+  font-size: 0.9375rem;
+  padding: 0.45em 1em;
+}
+
+.portrait {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 460px);
+}
+
+/* glow ring behind the photo */
+.portrait::before {
+  content: '';
+  position: absolute;
+  inset: -8%;
+  border-radius: 50%;
+  background: conic-gradient(from 210deg, #4facfe, #a78bfa, #f472b6, #4facfe);
+  filter: blur(48px);
+  opacity: calc(0.35 + 0.25 * var(--bloom));
+}
+
+.portrait__frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px var(--hairline),
+    0 40px 80px -40px rgba(0, 0, 0, 0.5);
+}
+
+.portrait__img {
+  width: 100%;
+  height: 112%;
+  margin-top: -6%;
+  object-fit: cover;
+  object-position: 50% 30%;
+}
+
+@media (min-width: 900px) {
+  .about-hero__grid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  }
+}
+
+/* ---------- story ---------- */
+
+.about-story__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1em;
+  max-width: 760px;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: var(--tracking-snug);
+}
+
+.about-story__inner p:first-child {
+  font-size: 1.15em;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.about-story__inner p:not(:first-child) {
+  color: var(--text-muted);
+}
+
+/* ---------- journey ---------- */
+
+.journey__track {
+  position: relative;
+}
+
+.journey__rail {
+  display: none;
+}
+
+.journey__list {
+  display: grid;
+  gap: 32px;
+}
+
+.journey__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 28px;
+  border-left: 2px solid var(--hairline);
+}
+
+.journey__dot {
+  position: absolute;
+  left: -9px;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--gradient);
+  box-shadow: 0 0 0 5px var(--section-bg);
+}
+
+.journey__year {
+  font-size: clamp(2rem, 3.6vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--tracking-tight);
+  width: fit-content;
+}
+
+.journey__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-snug);
+}
+
+.journey__body {
+  color: var(--text-muted);
+  max-width: 34ch;
+}
+
+@media (min-width: 1000px) {
+  .journey__rail {
+    display: block;
+    position: absolute;
+    top: 7px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--hairline);
+  }
+
+  .journey__progress {
+    height: 100%;
+    border-radius: inherit;
+    background: var(--gradient);
+    transform-origin: 0 50%;
+  }
+
+  .journey__list {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .journey__item {
+    padding: 36px 0 0;
+    border-left: 0;
+  }
+
+  .journey__dot {
+    left: 0;
+    top: 0;
+  }
+}

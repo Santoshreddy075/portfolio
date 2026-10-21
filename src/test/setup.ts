@@ -18,4 +18,8 @@ if (!window.matchMedia) {
     }) as MediaQueryList
 }
 
+// jsdom doesn't scroll. The route scroll manager calls these.
+window.scrollTo = () => {}
+Element.prototype.scrollIntoView = () => {}
+
 afterEach(cleanup)

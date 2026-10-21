@@ -3,7 +3,7 @@ import { profile } from '../content/profile'
 import { MEDIA, gsap, useGSAP } from '../lib/gsap'
 import './Experience.css'
 
-export function Experience() {
+export function Experience({ alt = false }: { alt?: boolean }) {
   const root = useRef<HTMLElement>(null)
 
   useGSAP(
@@ -25,8 +25,8 @@ export function Experience() {
           gsap.from(item.querySelector('.timeline__body'), { x: -24, opacity: 0, duration: 0.9, scrollTrigger: trigger })
           gsap.fromTo(
             item.querySelector('.timeline__dot'),
-            { scale: 0.5, backgroundColor: '#d2d2d7' },
-            { scale: 1, backgroundColor: '#0071e3', duration: 0.5, scrollTrigger: trigger },
+            { scale: 0.5, opacity: 0.35 },
+            { scale: 1, opacity: 1, duration: 0.5, scrollTrigger: trigger },
           )
         })
       })
@@ -37,7 +37,7 @@ export function Experience() {
   return (
     <section
       id="experience"
-      className="section section--mist experience"
+      className={`section experience${alt ? ' section--alt' : ''}`}
       ref={root}
       aria-labelledby="experience-title"
     >

@@ -1,15 +1,15 @@
-import { useRef } from 'react'
-import { profile } from '../content/profile'
+import { useId, useRef } from 'react'
 import { MEDIA, SplitText, gsap, useGSAP } from '../lib/gsap'
 import './Statement.css'
 
-export function Statement() {
+/** A large paragraph whose words brighten as you scroll past (pinned on desktop). */
+export function Statement({ eyebrow, text, alt = false }: { eyebrow: string; text: string; alt?: boolean }) {
   const root = useRef<HTMLElement>(null)
+  const titleId = useId()
 
   useGSAP(
     () => {
       const mm = gsap.matchMedia()
-      // Each word brightens as the scrollbar passes it. Pinned on desktop.
       mm.add({ desktop: MEDIA.desktopMotion, mobile: MEDIA.mobileMotion }, (ctx) => {
         const { desktop } = ctx.conditions!
         const split = SplitText.create('.statement__text', { type: 'words' })
@@ -32,12 +32,12 @@ export function Statement() {
   )
 
   return (
-    <section className="section section--dark statement" ref={root} aria-labelledby="statement-title">
+    <section className={`section statement${alt ? ' section--alt' : ''}`} ref={root} aria-labelledby={titleId}>
       <div className="container statement__inner">
-        <h2 id="statement-title" className="statement__eyebrow eyebrow">
-          How I work
+        <h2 id={titleId} className="statement__eyebrow eyebrow">
+          {eyebrow}
         </h2>
-        <p className="statement__text">{profile.statement}</p>
+        <p className="statement__text">{text}</p>
       </div>
     </section>
   )
