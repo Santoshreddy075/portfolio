@@ -48,7 +48,8 @@ export type Profile = {
   initials: string
   role: string
   location: string
-  email: string
+  /** Shown as mail links in the contact section; the first one is the "Email me" button. */
+  emails: string[]
   /** Link to a résumé (e.g. './resume.pdf' in public/). Leave empty to hide the résumé buttons. */
   resumeUrl: string
   /** Your GitHub username; the GitHub tile links to your profile. */

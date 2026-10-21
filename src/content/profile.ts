@@ -9,7 +9,7 @@ export const profile: Profile = {
   initials: 'SM',
   role: 'Master of AI student',
   location: 'Melbourne, Australia',
-  email: 'santoshreddy75@icloud.com',
+  emails: ['santoshreddy75@icloud.com', 'santoshreddymaryada80@gmail.com'],
   resumeUrl: '',
   githubUsername: 'Santoshreddy075',
   liveGithubRepos: false,

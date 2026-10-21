@@ -54,7 +54,7 @@ export function Contact() {
         </h2>
         <p className="lead contact__lead">{profile.copy.contactLead}</p>
         <div className="contact__actions">
-          <a className="btn btn--primary" href={`mailto:${profile.email}`}>
+          <a className="btn btn--primary" href={`mailto:${profile.emails[0]}`}>
             Email me
           </a>
           {profile.resumeUrl && (
@@ -63,6 +63,13 @@ export function Contact() {
             </a>
           )}
         </div>
+        <ul className="contact__emails">
+          {profile.emails.map((email) => (
+            <li key={email}>
+              <a href={`mailto:${email}`}>{email}</a>
+            </li>
+          ))}
+        </ul>
         <ul className="contact__socials">
           {profile.socials.map((social) => (
             <li key={social.label}>

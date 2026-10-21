@@ -59,8 +59,15 @@ describe('App', () => {
     }
   })
 
-  it('links the contact button to the email address', () => {
-    expect(screen.getByRole('link', { name: /email me/i })).toHaveAttribute('href', `mailto:${profile.email}`)
+  it('links the contact button to the primary email address', () => {
+    expect(screen.getByRole('link', { name: /email me/i })).toHaveAttribute('href', `mailto:${profile.emails[0]}`)
+  })
+
+  it('lists every email address as a mail link', () => {
+    const contact = screen.getByRole('region', { name: profile.copy.contactTitle })
+    for (const email of profile.emails) {
+      expect(within(contact).getByRole('link', { name: email })).toHaveAttribute('href', `mailto:${email}`)
+    }
   })
 
   it('takes section intros and the call to action from the profile', () => {

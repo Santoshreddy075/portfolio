@@ -57,6 +57,26 @@
   margin-top: 8px;
 }
 
+.contact__emails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 28px;
+  margin-top: -4px;
+}
+
+.contact__emails a {
+  font-size: var(--text-body);
+  color: var(--on-dark);
+  overflow-wrap: anywhere;
+  transition: color 0.2s;
+}
+
+.contact__emails a:hover {
+  color: var(--link-on-dark);
+  text-decoration: underline;
+}
+
 .contact__socials {
   display: flex;
   flex-wrap: wrap;

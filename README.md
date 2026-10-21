@@ -8,7 +8,7 @@ Everything the site says lives in **`src/content/profile.ts`**: your name, hero 
 
 - **GitHub tile:** it links to `githubUsername`'s profile. With `liveGithubRepos: true` it shows your most recently pushed public repos, fetched live. With `false` it shows your `projects`.
 - **Project visuals:** each project's `art` picks a generated screen (`vision`, `metrics`, `prompt`, `chain`, `player`, `hero`) and `palette` tints it. These live in `src/components/ProjectArt.tsx` if you want to draw your own.
-- **Email and résumé:** set `email` and `resumeUrl`. Résumé buttons only appear when `resumeUrl` is set. To host a résumé PDF with the site, put it in `public/` and set `resumeUrl: './resume.pdf'`.
+- **Email and résumé:** list your addresses in `emails` (the first one is the "Email me" button) and set `resumeUrl`. Résumé buttons only appear when `resumeUrl` is set. To host a résumé PDF with the site, put it in `public/` and set `resumeUrl: './resume.pdf'`.
 
 ## Develop
 
